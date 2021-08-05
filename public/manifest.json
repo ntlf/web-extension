@@ -1,0 +1,27 @@
+{
+  "name": "Web Extenstion",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "offline_enabled": true,
+  "icons": {
+    "16": "bad-pig-icon.png",
+    "48": "bad-pig-icon.png",
+    "128": "bad-pig-icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "bg-loader.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["dist/content-script.js"]
+    }
+  ],
+  "permissions": ["notifications"],
+  "host_permissions": ["https://rsms.me/"]
+}
